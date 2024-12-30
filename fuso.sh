@@ -48,7 +48,7 @@ echo "Acessando a pasta do sincronizador: $SYNC_DIR"
 cd "$SYNC_DIR" || { echo "Erro ao acessar a pasta '$SYNC_DIR'"; exit 1; }
 
 echo "Reiniciando os containers Docker na pasta '$SYNC_DIR'..."
-docker compose down && docker compose up -d || echo "Erro ao reiniciar os containers em '$SYNC_DIR', ignorando..."
+docker compose down && docker compose up -d --remove-orphans || echo "Erro ao reiniciar os containers em '$SYNC_DIR', ignorando..."
 
 # Encerrar o script
 echo "Script concluído com sucesso."
