@@ -28,20 +28,15 @@ echo "Configurando RTC local..."
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Acessar a pasta /docker e reiniciar os containers
-pwd
-if [ -d "/docker" ]; then
-    echo "Acessando a pasta '/docker'..."
-    cd "/docker" || { echo "Erro ao acessar a pasta '/docker'"; exit 1; }
-    
-    echo "Reiniciando os containers Docker na pasta '/docker'..."
-    docker compose down && docker compose up -d || echo "Erro ao reiniciar os containers em '/docker', ignorando..."
-    
-    # Voltar ao diretório anterior
-    echo "Voltando ao diretório anterior..."
-    cd - || { echo "Erro ao voltar ao diretório anterior"; exit 1; }
-else
-    echo "Pasta '/docker' não encontrada, pulando etapa..."
-fi
+echo "Acessando a pasta '/docker'..."
+cd "/docker" || { echo "Erro ao acessar a pasta '/docker'"; exit 1; }
+
+echo "Reiniciando os containers Docker na pasta '/docker'..."
+docker compose down && docker compose up -d || echo "Erro ao reiniciar os containers em '/docker', ignorando..."
+
+# Voltar ao diretório anterior
+echo "Voltando ao diretório anterior..."
+cd - || { echo "Erro ao voltar ao diretório anterior"; exit 1; }
 
 # Entrar na pasta do sincronizador do cliente e reiniciar os containers
 echo "Acessando a pasta do sincronizador: $SYNC_DIR"
