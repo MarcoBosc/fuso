@@ -30,12 +30,12 @@ sudo timedatectl set-local-rtc 1 --adjust-system-clock
 # Entrar na pasta "docker" dentro do diretório do cliente e reiniciar os containers
 if [ -d "/docker" ]; then
     echo "Acessando a pasta do gestão web..."
-    cd "/docker" || { echo "Erro ao acessar a pasta '$CLIENT_DIR/docker'"; exit 1; }
+    cd "/docker" || { echo "Erro ao acessar a pasta 'docker'"; exit 1; }
     
     echo "Reiniciando os containers Docker na pasta '/docker'..."
-    docker compose down && docker compose up -d || echo "Erro ao reiniciar os containers em '$CLIENT_DIR/docker', ignorando..."
+    docker compose down && docker compose up -d || echo "Erro ao reiniciar os containers em '/docker', ignorando..."
 else
-    echo "Pasta '$CLIENT_DIR/docker' não encontrada, pulando etapa..."
+    echo "Pasta '/docker' não encontrada, pulando etapa..."
 fi
 
 # Entrar na pasta do sincronizador do cliente e reiniciando os containers
