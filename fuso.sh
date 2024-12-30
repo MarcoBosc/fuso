@@ -29,7 +29,7 @@ sudo timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Acessar a pasta /docker e reiniciar os containers
 echo "Acessando a pasta '/docker'..."
-cd "/docker" || { echo "Erro ao acessar a pasta '/docker'"; exit 1; }
+cd docker || { echo "Erro ao acessar a pasta '/docker'"; exit 1; }
 
 echo "Reiniciando os containers Docker na pasta '/docker'..."
 docker compose down && docker compose up -d || echo "Erro ao reiniciar os containers em '/docker', ignorando..."
