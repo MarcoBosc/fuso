@@ -40,6 +40,7 @@ if [ -d "/docker" ]; then
     cd - || { echo "Erro ao voltar ao diretório anterior"; exit 1; }
 else
     echo "Pasta '/docker' não encontrada, pulando etapa..."
+    echo pwd
 fi
 
 # Entrar na pasta do sincronizador do cliente e reiniciar os containers
