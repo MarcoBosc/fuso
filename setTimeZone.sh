@@ -15,8 +15,8 @@ echo "Configurando o fuso horário para $TIMEZONE..."
 sudo timedatectl set-timezone "$TIMEZONE"
 
 # Configurar RTC local
-echo "Configurando RTC local..."
-sudo timedatectl set-local-rtc 1 --adjust-system-clock
+# echo "Configurando RTC local..."
+# sudo timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Encerrar o script
 echo "Script concluído com sucesso."
